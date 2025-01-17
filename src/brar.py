@@ -1,4 +1,4 @@
-### download data
+### data import
 
 # load the label and caption data from google drive
 import pandas as pd
@@ -222,13 +222,14 @@ from sklearn.metrics import accuracy_score, f1_score
 import numpy as np
 torch.manual_seed(1)
 
+
 ############################ Function Defination ############################
+
 
 def argmax(vec):
     # return the argmax as a python int
     _, idx = torch.max(vec, 1)
     return idx.item()
-
 
 # compute log sum exp in a numerically stable way for the forward algorithm
 def log_sum_exp(vec):
@@ -236,7 +237,6 @@ def log_sum_exp(vec):
     max_score_broadcast = max_score.view(1, -1).expand(1, vec.size()[1])
     return max_score + \
         torch.log(torch.sum(torch.exp(vec - max_score_broadcast)))
-
 
 # evaluation metrics
 def cal_acc(model, input_index, output_index):
@@ -260,7 +260,6 @@ def cal_acc(model, input_index, output_index):
             count += 1
     accuracy = count / len(predictions)
     return predictions, ground_truth, accuracy
-
 
 # decode index to labels
 def decode_output(output_list):
@@ -305,7 +304,6 @@ class BRAR(nn.Module):
         self.transitions = nn.Parameter(torch.randn(self.tagset_size, self.tagset_size))
         self.transitions.data[tag_to_ix[START_TAG], :] = -10000
         self.transitions.data[:, tag_to_ix[STOP_TAG]] = -10000
-
 
     def init_hidden(self):
         return (torch.randn(2*self.n_layers, 1, self.hidden_dim // 2).to(device),
@@ -467,7 +465,8 @@ class BRAR(nn.Module):
         return tag_seq
 
 
-############################ Create A New Model ############################
+############################ Initialising Model ############################
+
 
 # hyper-parameters
 EMBEDDING_DIM = w2v_embed_matrix.shape[1]
