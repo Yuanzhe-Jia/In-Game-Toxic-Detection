@@ -1,4 +1,4 @@
-# In-Game Toxic Language Detection
+# In-Game Toxic Detection
 
 Code for [In-Game Toxic Language Detection: Shared Task and Attention Residuals](https://arxiv.org/abs/2211.05995), accepted by AAAI 2023.
 
