@@ -1,6 +1,6 @@
-# In Game Toxic Language Detection
+# In-Game Toxic Language Detection
 
-Code for [In Game Toxic Language Detection: Shared Task and Attention Residuals](https://arxiv.org/abs/2211.05995), accepted by AAAI 2023.
+Code for [In-Game Toxic Language Detection: Shared Task and Attention Residuals](https://arxiv.org/abs/2211.05995), accepted by AAAI 2023.
 
 In-game toxic language becomes the hot potato in the gaming industry and community. 
 There have been several online game toxicity analysis frameworks and models proposed. However, it is still challenging to detect toxicity due to the nature of in-game chat, which has extremely short length. 
